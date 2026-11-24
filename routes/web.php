@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ControllerAuth;
 use App\Http\Controllers\ListaController;
+use App\Http\Controllers\ControllerVisitantes;
 use Illuminate\Support\Facades\Route;
 
 // Solo para gente SIN sesión
@@ -19,3 +20,5 @@ Route::middleware('auth')->group(function () {
 });
 
 // La ruta pública /{token} de tu compañera va SIEMPRE al final
+Route::post('/{token}/items/{id}', [ControllerVisitantes::class, 'update']);
+Route::get('/{token}', [ControllerVisitantes::class, 'show']);

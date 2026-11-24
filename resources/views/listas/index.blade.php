@@ -36,6 +36,14 @@
                                 </form>
 
                                 {{-- ESTUDIANTE B: aquí van los botones "Ver pública" y "Compartir por WhatsApp" --}}
+                                 <a href="{{ url($lista->token) }}" target="_blank" class="btn btn-sm btn-info">
+                                        <i class="fa fa-eye me-1"></i>Ver pública
+                                    </a>
+
+                                    <a href="https://wa.me/?text={{ urlencode('Mirá mi lista «' . $lista->titulo . '»: ' . url($lista->token)) }}"
+                                        target="_blank" class="btn btn-sm btn-success">
+                                        <i class="fab fa-whatsapp me-1"></i>Compartir
+                                    </a>
                             </td>
                         </tr>
                     @empty
