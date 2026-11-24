@@ -6,6 +6,7 @@
 <div class="bg-light rounded p-4">
     <h6 class="mb-4">Nueva lista</h6>
 
+    {{-- Errors es de laravel, me lo da directo para poder usarlo en las vistas blade --}}
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul class="mb-0">
@@ -22,20 +23,21 @@
         <div class="mb-3">
             <label for="titulo" class="form-label">Título</label>
             <input type="text" name="titulo" id="titulo" class="form-control"
-                   value="{{ old('titulo') }}" required>
+                value="{{ old('titulo') }}" required>
         </div>
 
         <label class="form-label">Ítems</label>
         <div id="contenedor-items">
-            @forelse (old('items', ['']) as $item)
+            {{-- Si existen datos llamados items, los toma, si no, inicia con un campo vacio --}}
+            @forelse (old('items', ['']) as $item) 
                 <div class="input-group mb-2 fila-item">
                     <input type="text" name="items[]" class="form-control"
-                           value="{{ $item }}" placeholder="Descripción del ítem" required>
+                        value="{{ $item }}" placeholder="Descripción del ítem" required>
                     <button type="button" class="btn btn-outline-danger btn-quitar">
                         <i class="fa fa-times"></i>
                     </button>
                 </div>
-            @empty
+            {{-- @empty nell, eso no xd--}}
             @endforelse
         </div>
 
