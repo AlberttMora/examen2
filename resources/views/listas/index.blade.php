@@ -26,7 +26,8 @@
                             <td>{{ $lista->titulo }}</td>
                             <td><code>{{ $lista->token }}</code></td>
                             <td class="d-flex gap-1">
-                                <a href="{{ route('listas.edit', $lista->id_lista) }}" class="btn btn-sm btn-warning">Editar</a>
+                                <a href="{{ route('listas.edit', $lista->id_lista) }}"
+                                    class="btn btn-sm btn-warning">Editar</a>
 
                                 <form method="POST" action="{{ route('listas.destroy', $lista->id_lista) }}"
                                     onsubmit="return confirm('¿Eliminar la lista «{{ $lista->titulo }}»?');">
@@ -36,14 +37,14 @@
                                 </form>
 
                                 {{-- ESTUDIANTE B: aquí van los botones "Ver pública" y "Compartir por WhatsApp" --}}
-                                 <a href="{{ url($lista->token) }}" target="_blank" class="btn btn-sm btn-info">
-                                        <i class="fa fa-eye me-1"></i>Ver pública
-                                    </a>
+                                <a href="{{ url($lista->token) }}" target="_blank" class="btn btn-sm btn-info">
+                                    <i class="fa fa-eye me-1"></i>Ver pública
+                                </a>
 
-                                    <a href="https://wa.me/?text={{ urlencode('Mirá mi lista «' . $lista->titulo . '»: ' . url($lista->token)) }}"
-                                        target="_blank" class="btn btn-sm btn-success">
-                                        <i class="fab fa-whatsapp me-1"></i>Compartir
-                                    </a>
+                                <a href="https://wa.me/?text={{ urlencode('Mirá mi lista «' . $lista->titulo . '»: ' . url($lista->token)) }}"
+                                    target="_blank" class="btn btn-sm btn-success">
+                                    <i class="fab fa-whatsapp me-1"></i>Compartir
+                                </a>
                             </td>
                         </tr>
                     @empty
