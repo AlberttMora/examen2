@@ -33,8 +33,7 @@
             @forelse ($lista->items as $item)
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <label class="d-flex align-items-center mb-0 flex-grow-1" style="cursor: pointer;">
-                        <input type="checkbox" class="form-check-input item-check me-3 mt-0"
-                            data-id="{{ $item->id_item }}" {{ $item->completado ? 'checked' : '' }}>
+                        <input type="checkbox" class="form-check-input item-check me-3 mt-0" data-id="{{ $item->id_item }}" {{ $item->completado ? 'checked' : '' }}>
                         <span class="item-texto">{{ $item->descripcion }}</span>
                     </label>
                     <small class="item-estado text-muted">{{ $item->completado ? 'Completado' : 'Pendiente' }}</small>
@@ -52,5 +51,5 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('js/publica.js') }}"></script>
+    <script src="{{ asset('publica.js') }}"></script>
 @endpush
